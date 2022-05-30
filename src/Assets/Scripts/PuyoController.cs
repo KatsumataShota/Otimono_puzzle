@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PuyoType
 {
-    Black = 0,
+    Blank = 0,
 
     Green = 1,
     Red = 2,
@@ -16,24 +16,36 @@ public enum PuyoType
     Invalid = 7,
 };
 
+[RequireComponent(typeof(Renderer))]
 public class PuyoController : MonoBehaviour
 {
-    static readonly Color[] color_table = new Color[]
-    {
+    static readonly Color[] color_table = new Color[] {
         Color.black,
 
         Color.green,
         Color.red,
-        Color.blue,
         Color.yellow,
+        Color.blue,
         Color.magenta,
         Color.cyan,
 
         Color.gray,
     };
 
-    [SerializeField] Renderer my_renderer = default!;//自分自身のmaterialを登録
+    [SerializeField] Renderer my_renderer = default!;// 自分自身のマテリアルを登録しておく(GetComponentをなくす)
     PuyoType _type = PuyoType.Invalid;
+
+    // Start is called before the first frame update
+    //    void Start()
+    //    {
+    //        // 今回は使わない
+    //    }
+
+    // Update is called once per frame
+    //    void Update()
+    //    {
+    //        // 今回は使わない
+    //    }
 
     public void SetPuyoType(PuyoType type)
     {
@@ -45,6 +57,7 @@ public class PuyoController : MonoBehaviour
     {
         return _type;
     }
+
     public void SetPos(Vector3 pos)
     {
         this.transform.localPosition = pos;
