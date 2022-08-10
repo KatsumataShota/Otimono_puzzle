@@ -35,17 +35,6 @@ public class PuyoController : MonoBehaviour
     [SerializeField] Renderer my_renderer = default!;// 自分自身のマテリアルを登録しておく(GetComponentをなくす)
     PuyoType _type = PuyoType.Invalid;
 
-    // Start is called before the first frame update
-    //    void Start()
-    //    {
-    //        // 今回は使わない
-    //    }
-
-    // Update is called once per frame
-    //    void Update()
-    //    {
-    //        // 今回は使わない
-    //    }
 
     public void SetPuyoType(PuyoType type)
     {
